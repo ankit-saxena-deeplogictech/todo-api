@@ -16,11 +16,15 @@ let todos = [{
     completed:true
 }];
 
-
+// Get /todos
 app.get('/todos',function(req,res){
     res.json(todos);
 });
 
+// Get /todos/:id
+app.get('/todos/:id',function(req,res){
+    res.send('Asking the todos for id : '+req.params.id);
+});
 
 app.get('/', function(req,res){
     res.send('Todo API Root');
