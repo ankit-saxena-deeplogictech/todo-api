@@ -10,6 +10,10 @@ let todos = [{
     id:2,
     description:'Go to the Market in Evening',
     completed:false
+},{
+    id:3,
+    description:'Prepare the cake',
+    completed:true
 }];
 
 
