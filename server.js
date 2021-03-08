@@ -23,7 +23,21 @@ app.get('/todos',function(req,res){
 
 // Get /todos/:id
 app.get('/todos/:id',function(req,res){
-    res.send('Asking the todos for id : '+req.params.id);
+
+    let matchedTodo;
+
+    todos.forEach(todo => {
+        if(todo.id===parseInt(req.params.id)){
+            matchedTodo=todo;
+        }
+    });
+
+    if(matchedTodo) {
+        res.send(matchedTodo);
+    }else {
+        res.status(404).send();
+    }
+
 });
 
 app.get('/', function(req,res){
