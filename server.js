@@ -13,7 +13,7 @@ let todos = [{
 }];
 
 
-app.get('/todos',function(){
+app.get('/todos',function(req,res){
     res.json(todos);
 });
 
