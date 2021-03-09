@@ -1,43 +1,38 @@
-const express   = require('express');
-const app       = express();
-const PORT      = process.env.PORT || 3000;
+const express       = require('express');
+const bodyParser    = require('body-parser');
+const app           = express();
+const PORT          = process.env.PORT || 3000;
+let todos = [];
+let todoNextId  =   1;
 
-let todos = [{
-    id:1,
-    description:'Breakfast with Modi',
-    completed:false
-},{
-    id:2,
-    description:'Go to the Market in Evening',
-    completed:false
-},{
-    id:3,
-    description:'Prepare the cake',
-    completed:true
-}];
+app.use(bodyParser.json());
 
 // Get /todos
 app.get('/todos',function(req,res){
     res.json(todos);
 });
 
+// Post /todos
+app.post('/todos',function(req,res){
+    let body = req.body;
+    body.id =   todoNextId++;    
+    res.json(body);
+});
+
 // Get /todos/:id
 app.get('/todos/:id',function(req,res){
 
     let matchedTodo;
-
     todos.forEach(todo => {
         if(todo.id===parseInt(req.params.id)){
             matchedTodo=todo;
         }
     });
-
     if(matchedTodo) {
-        res.send(matchedTodo);
+        res.json(matchedTodo);
     }else {
         res.status(404).send();
     }
-
 });
 
 app.get('/', function(req,res){
