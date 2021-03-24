@@ -1,13 +1,14 @@
 const express       = require('express');
 const bodyParser    = require('body-parser');
-const dbCon         = require('./mysql_con.js');
+// const dbCon         = require('./mysql_con.js');
 const _ = require('underscore');
 const app           = express();
 const PORT          = process.env.PORT || 3000;
 let todos = [];
 let todoNextId  =   1;
 
-console.log(dbCon);
+// console.log(dbCon.CON.Connection.config);
+// console.log(object);
 
 app.use(bodyParser.json());
 

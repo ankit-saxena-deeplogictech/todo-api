@@ -3,7 +3,8 @@ const mysql = require('mysql');
 const con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: ""
+  password: "",
+  database : "node_todo_api"
 });
 
 con.connect(function(err) {
