@@ -10,7 +10,6 @@ let todoNextId  =   1;
 
 // console.log(dbCon.CON.Connection.config);
 // console.log(object);
-// checking PR
 
 app.use(bodyParser.json());
 
